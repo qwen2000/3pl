@@ -45,7 +45,7 @@ def truncate_dests(x, limit=3):
 @st.cache_data
 def load_data():
     try:
-        df_forecast = pd.read_csv('3PL_Final_Forecast_Report.csv')
+        df_forecast = pd.read_csv('../3PL_Final_Forecast_Report.csv')
         df_forecast = df_forecast.sort_values(by='Week +1_Vol', ascending=False)
         df_forecast['Category'] = df_forecast['Category'].apply(clean_category_name)
         df_forecast['Customer_Masked'] = df_forecast['Customer'].apply(mask_name)
@@ -54,7 +54,7 @@ def load_data():
         df_forecast = pd.DataFrame()
 
     try:
-        df_agg = pd.read_csv('3pl_weekly_aggregated.csv')
+        df_agg = pd.read_csv('../3pl_weekly_aggregated.csv')
         df_agg['Create Date'] = pd.to_datetime(df_agg['Create Date'])
         total_trend = df_agg.groupby('Create Date')['Weekly_Volume'].sum().reset_index()
         total_trend.rename(columns={'Create Date': 'Date', 'Weekly_Volume': 'Total Volume'}, inplace=True)
