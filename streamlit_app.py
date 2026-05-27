@@ -13,6 +13,7 @@ scm_page = st.Page("scm_view.py", title="SCM Operation Center")
 pg = st.navigation([dashboard_page, scm_page])
 pg.run()
 
+'''
 col1, col2 = st.columns(2)
 
 with col1:
@@ -26,3 +27,4 @@ with col2:
     st.write("SCM Operation Center")
     if st.button("SCM Operation Panel", key="btn2"):
         st.switch_page(scm_page)
+'''
